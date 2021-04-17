@@ -16,8 +16,12 @@ function check(array) {
 	return finalResult;
 }
 function winnerPlayer(p) {
-	setTimeout(function(){ alert(p); }, 50);
+	document.getElementById('winner').innerHTML = p +"<button id='btn'>Reply</button>";	
+	document.getElementById('btn').addEventListener("click", function() {
+		setTimeout(function(){ rep(); }, 50);	
+	})	
 }
+
 function draw() {
 	if (this.classList == "card") {
 		count++;
@@ -25,13 +29,13 @@ function draw() {
 			this.classList.add("x");
 			firstPlayer.push(Number(this.dataset.index));
 			if (check(firstPlayer)) {
-				winnerPlayer("Congrats player one you win");
+				winnerPlayer("Congrats player one you win (X)");
 			}
 		} else {
 			this.classList.add("o");
 			secondPlayer.push(Number(this.dataset.index));
 			if (check(secondPlayer)) {
-				winnerPlayer("Congrats player two you win");
+				winnerPlayer("Congrats player two you win (O)");
 			}
 		}
 		if (count === 9) {
@@ -40,10 +44,11 @@ function draw() {
 	}
 }
 function rep() {
-	const w = document.querySelectorAll(".winner");
 	firstPlayer = [];
 	secondPlayer = [];
 	count = 0;
-	w.remove();
+	cards.forEach(card => card.classList.remove("x"));
+	cards.forEach(card => card.classList.remove("o"));
+	document.getElementById('winner').innerHTML = "";
 }
 cards.forEach(card => card.addEventListener("click", draw));

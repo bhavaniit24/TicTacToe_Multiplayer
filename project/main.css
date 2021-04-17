@@ -42,18 +42,19 @@ body {
 	content: "O";
 }
 .winner{
+	font-family: "Lucida Console", "Courier New", monospace;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	position: fixed;
 	width: 400px;
 	height: 200px;
 	padding: 20px 40px;
 	background-color: #fff;
 	font-size: 2rem;
 	border-radius: 20px;
-	text-align: center;;
+	margin: 40px;
+	text-align: center;
 	animation: animate .5s linear;
 }
 @keyframes animate {
@@ -64,7 +65,6 @@ body {
 		opacity: 1;
 	}
 }
-
 
 .winner button{
 	margin-top: 20px;
@@ -79,4 +79,6 @@ body {
 	color: #fff;
 	background-color: #F40E4D;
 }
-
+.winner button:hover{
+	background-color: #6EFF05;
+}
